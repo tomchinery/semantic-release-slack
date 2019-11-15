@@ -60,12 +60,21 @@ module.exports = async (pluginConfig, context) => {
     );
     return;
   }
-  // Format the output with the consumable platforms
+    // Format the output with the consumable platforms
+    const ourPlatforms = [
+        `${getPlatformEmoji('admin')} [Admin (dev)](https://admin-ate-apis-dev.firebaseapp.com/)`,
+        `${getPlatformEmoji('admin')} [Admin (staging)](https://admin-ate-apis-staging.firebaseapp.com/)`,
+        `${getPlatformEmoji('admin')} [Admin (production)](https://admin-ate-apis.firebaseapp.com/)`,
+        `${getPlatformEmoji('dev')} [Marketplace (dev)](https://marketplace-ate-apis-dev.firebaseapp.com/)`,
+        `${getPlatformEmoji('staging')} [Marketplace (staging)](https://marketplace-ate-apis-staging.firebaseapp.com/)`,
+        `${getPlatformEmoji('production')} [Marketplace (production)](https://marketplace-ate-apis.firebaseapp.com/)`
+    ];
+
   const consumablePlatforms = pluginConfig.platforms
-    ? `The release is available on the following platforms:\n ${pluginConfig.platforms
+    ? `Our environments:\n ${ourPlatforms
         .map((platform) => {
           debug(`Getting emoji for platform ${platform}`);
-          return `${getPlatformEmoji(platform)} ${platform}`;
+          return platform;
         })
         .join('\n')}`
     : '';

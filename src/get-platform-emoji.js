@@ -13,6 +13,14 @@ module.exports = (name) => {
       return emoji.get('cat2');
     case 'docker':
       return emoji.get('whale');
+    case 'dev':
+      return emoji.get('chestnut');
+    case 'staging':
+      return emoji.get('seedling');
+    case 'production':
+      return emoji.get('deciduous_tree');
+    case 'admin':
+      return emoji.get('paperclip');
     default:
       return '';
   }
