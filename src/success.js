@@ -62,16 +62,16 @@ module.exports = async (pluginConfig, context) => {
   }
     // Format the output with the consumable platforms
     const ourPlatforms = [
-        `${getPlatformEmoji('admin')} [Admin (dev)](https://admin-ate-apis-dev.firebaseapp.com/)`,
-        `${getPlatformEmoji('admin')} [Admin (staging)](https://admin-ate-apis-staging.firebaseapp.com/)`,
-        `${getPlatformEmoji('admin')} [Admin (production)](https://admin-ate-apis.firebaseapp.com/)`,
-        `${getPlatformEmoji('dev')} [Marketplace (dev)](https://marketplace-ate-apis-dev.firebaseapp.com/)`,
-        `${getPlatformEmoji('staging')} [Marketplace (staging)](https://marketplace-ate-apis-staging.firebaseapp.com/)`,
-        `${getPlatformEmoji('production')} [Marketplace (production)](https://marketplace-ate-apis.firebaseapp.com/)`
+        `${getPlatformEmoji('admin')} <https://admin-ate-apis-dev.firebaseapp.com/|Admin (dev)>`,
+        `${getPlatformEmoji('admin')} <https://admin-ate-apis-staging.firebaseapp.com/|Admin (staging)>`,
+        `${getPlatformEmoji('admin')} <https://admin-ate-apis.firebaseapp.com/|Admin (production)>`,
+        `${getPlatformEmoji('dev')} <https://marketplace-ate-apis-dev.firebaseapp.com/|Marketplace (dev)>`,
+        `${getPlatformEmoji('staging')} <https://marketplace-ate-apis-staging.firebaseapp.com/|Marketplace (staging)>`,
+        `${getPlatformEmoji('production')} <https://marketplace-ate-apis.firebaseapp.com/)|Marketplace (production)>`
     ];
 
   const consumablePlatforms = pluginConfig.platforms
-    ? `Our environments:\n ${ourPlatforms
+    ? `Available Environments:\n ${ourPlatforms
         .map((platform) => {
           debug(`Getting emoji for platform ${platform}`);
           return platform;
