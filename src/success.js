@@ -70,15 +70,15 @@ module.exports = async (pluginConfig, context) => {
         .join('\n')}`
     : '';
 
-  releases.forEach((release) => {
-    // We want to grab the info from the github plugin
-    if (release.pluginName.includes('github')) {
-      // Sanitize the output of the release notes so it looks nice in slack
-      githubReleaseNotesUrl = fullReleaseNotes
-        ? sanitizeMarkdown(release.notes)
-        : `${emoji.get('spiral_note_pad')} Release Notes: ${release.url}`;
-    }
-  });
+    releases.forEach((release) => {
+        // We want to grab the info from the github plugin
+        if (release.pluginName.includes('github') || release.pluginName.includes('gitlab')) {
+            // Sanitize the output of the release notes so it looks nice in slack
+            githubReleaseNotesUrl = fullReleaseNotes
+                ? sanitizeMarkdown(release.notes)
+                : `${emoji.get('spiral_note_pad')} Release Notes: ${release.url}`;
+        }
+    });
 
   const slackMessage = `*${pkg.name}:* \`${nextRelease.version}\` is now available! ${emoji.get(
     'tada',
